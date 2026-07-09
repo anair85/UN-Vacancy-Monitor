@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-07-08T09:00:00+00:00",
+  "sample": true,
+  "sources": {
+    "UNHCR": { "status": "ok", "count": 4, "fetched_at": "2026-07-08T09:00:00+00:00" },
+    "UNICEF": { "status": "ok", "count": 4, "fetched_at": "2026-07-08T09:00:00+00:00" },
+    "WFP": { "status": "ok", "count": 3, "fetched_at": "2026-07-08T09:00:00+00:00" }
+  },
+  "jobs": [
+    {
+      "id": "sample-unhcr-1",
+      "title": "Senior Private Sector Partnerships Officer (Evergreen talent pool)",
+      "agency": "UNHCR",
+      "level": "P4",
+      "location": "Copenhagen, Denmark",
+      "posted_date": "2026-07-01",
+      "closing_date": null,
+      "summary": "Rolling talent pool for senior PSP roles across income streams and markets.",
+      "evergreen": true,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External"
+    },
+    {
+      "id": "sample-unhcr-2",
+      "title": "Private Sector Partnerships Officer (Strategic Planning)",
+      "agency": "UNHCR",
+      "level": "P3",
+      "location": "Geneva, Switzerland",
+      "posted_date": "2026-07-05",
+      "closing_date": "2026-07-20",
+      "summary": "Income planning, performance analysis and investment case development for PSP.",
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External"
+    },
+    {
+      "id": "sample-unicef-1",
+      "title": "Partnerships Manager (Private Fundraising and Partnerships), P-4",
+      "agency": "UNICEF",
+      "level": "P4",
+      "location": "Geneva, Switzerland",
+      "posted_date": "2026-07-06",
+      "closing_date": "2026-07-24",
+      "summary": "Private Fundraising and Partnerships Division",
+      "evergreen": false,
+      "url": "https://jobs.smartrecruiters.com/UNICEF"
+    },
+    {
+      "id": "sample-unicef-2",
+      "title": "Fundraising Investment Specialist (Revenue Planning), P-3",
+      "agency": "UNICEF",
+      "level": "P3",
+      "location": "Geneva, Switzerland",
+      "posted_date": "2026-06-28",
+      "closing_date": "2026-07-15",
+      "summary": "Private Fundraising and Partnerships Division",
+      "evergreen": false,
+      "url": "https://jobs.smartrecruiters.com/UNICEF"
+    },
+    {
+      "id": "sample-wfp-1",
+      "title": "Partnerships Officer (Private Partnerships and Fundraising), P4",
+      "agency": "WFP",
+      "level": "P4",
+      "location": "Rome, Italy",
+      "posted_date": "2026-07-03",
+      "closing_date": "2026-07-17",
+      "summary": "Private Partnerships and Fundraising Division",
+      "evergreen": false,
+      "url": "https://www.wfp.org/careers/job-openings"
+    },
+    {
+      "id": "sample-wfp-2",
+      "title": "Individual Giving & Income Analytics Officer, P3",
+      "agency": "WFP",
+      "level": "P3",
+      "location": "Rome, Italy",
+      "posted_date": "2026-06-25",
+      "closing_date": "2026-07-12",
+      "summary": "Private Partnerships and Fundraising Division",
+      "evergreen": false,
+      "url": "https://www.wfp.org/careers/job-openings"
+    }
+  ]
+}

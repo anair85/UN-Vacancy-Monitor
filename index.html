@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacancy Monitor — UNHCR · UNICEF · WFP</title>
+<meta name="description" content="Personal monitor for P4 private-sector partnership and fundraising vacancies at UNHCR, UNICEF and WFP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Public+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F7F4; --card:#FFFFFF; --ink:#122B44; --slate:#5B6B7B; --faint:#8A97A3;
+  --line:#E3E5E1; --line-strong:#CBD0CC;
+  --un:#009EDB; --un-soft:#E3F4FC;
+  --unhcr:#0072BC; --unicef:#1CABE2; --wfp:#C28A12;
+  --new:#1D8A57; --new-soft:#E4F3EB;
+  --ever:#7A4FBF; --ever-soft:#F0EAFA;
+  --radius:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0E1620; --card:#16212D; --ink:#E8EDF2; --slate:#9DACBA; --faint:#6E7E8D;
+    --line:#243140; --line-strong:#33455A;
+    --un:#2FB4E9; --un-soft:#123243;
+    --unicef:#3FBCEA; --wfp:#D9A62E;
+    --new:#3CB97E; --new-soft:#12301F;
+    --ever:#A585DE; --ever-soft:#2A2140;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Public Sans',system-ui,sans-serif; font-size:15px; line-height:1.55;
+}
+a{color:var(--un)}
+.wrap{max-width:880px; margin:0 auto; padding:0 20px}
+
+/* Masthead */
+header{border-bottom:2px solid var(--ink); padding:36px 0 20px; margin-bottom:0}
+.eyebrow{
+  font-family:'Archivo',sans-serif; font-stretch:115%; font-weight:600;
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate);
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.eyebrow .agencies{color:var(--faint); font-weight:500}
+h1{
+  font-family:'Archivo',sans-serif; font-weight:700; font-stretch:105%;
+  font-size:clamp(26px,5vw,40px); line-height:1.08; margin:10px 0 14px; letter-spacing:-.01em;
+}
+.statusline{
+  font-family:'Spline Sans Mono',monospace; font-size:12.5px; color:var(--slate);
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--new);flex-shrink:0;animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.banner{
+  margin:16px 0 0; padding:10px 14px; border:1px dashed var(--line-strong); border-radius:var(--radius);
+  font-size:13px; color:var(--slate); background:var(--card);
+}
+.banner strong{color:var(--ink); font-weight:600}
+
+/* Stats */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-top:none; margin-bottom:24px}
+.stat{background:var(--card); padding:14px 16px}
+.stat .label{font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint);
+  font-family:'Archivo',sans-serif; font-weight:600}
+.stat .value{font-family:'Spline Sans Mono',monospace; font-size:26px; font-weight:500; margin-top:2px}
+.stat.ever .value{color:var(--ever)} .stat.fresh .value{color:var(--new)}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* Filter bar */
+.filters{
+  position:sticky; top:0; z-index:10; background:var(--paper);
+  padding:12px 0; border-bottom:1px solid var(--line); margin-bottom:16px;
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+}
+.search{position:relative; flex:1 1 200px; min-width:170px}
+.search input{
+  width:100%; padding:8px 12px 8px 34px; border:1px solid var(--line-strong); border-radius:var(--radius);
+  background:var(--card); color:var(--ink); font:inherit; font-size:14px;
+}
+.search svg{position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--faint)}
+select{
+  padding:8px 10px; border:1px solid var(--line-strong); border-radius:var(--radius);
+  background:var(--card); color:var(--ink); font:inherit; font-size:14px; cursor:pointer;
+}
+.toggle{
+  padding:8px 12px; border:1px solid var(--line-strong); border-radius:var(--radius);
+  background:var(--card); color:var(--ink); font:inherit; font-size:14px; cursor:pointer; font-weight:500;
+}
+.toggle[aria-pressed="true"]{background:var(--ever-soft); border-color:var(--ever); color:var(--ever)}
+.toggle.saved[aria-pressed="true"]{background:var(--un-soft); border-color:var(--un); color:var(--un)}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{
+  outline:2px solid var(--un); outline-offset:2px;
+}
+
+/* List */
+.list{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--card)}
+.row{display:flex; gap:14px; padding:16px 18px 16px 14px; border-top:1px solid var(--line); position:relative}
+.row:first-child{border-top:none}
+.spine{width:4px; border-radius:2px; flex-shrink:0; align-self:stretch}
+.row .main{flex:1; min-width:0}
+.titleline{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+.titleline a{
+  color:var(--ink); text-decoration:none; font-weight:600; font-size:15.5px; line-height:1.35;
+}
+.titleline a:hover{text-decoration:underline; text-decoration-color:var(--un)}
+.tag{font-family:'Archivo',sans-serif; font-weight:600; font-size:10.5px; letter-spacing:.07em;
+  text-transform:uppercase; padding:2px 8px; border-radius:99px; white-space:nowrap}
+.tag.ever{background:var(--ever-soft); color:var(--ever)}
+.tag.new{background:var(--new-soft); color:var(--new)}
+.summary{color:var(--slate); font-size:13.5px; margin:4px 0 8px; line-height:1.5}
+.meta{font-family:'Spline Sans Mono',monospace; font-size:12px; color:var(--faint);
+  display:flex; gap:14px; flex-wrap:wrap}
+.meta .agency{font-weight:500}
+.savebtn{
+  background:none; border:none; cursor:pointer; color:var(--faint); padding:4px; height:fit-content;
+  border-radius:6px; flex-shrink:0;
+}
+.savebtn:hover{color:var(--un)}
+.savebtn[aria-pressed="true"]{color:var(--un)}
+.empty{padding:48px 24px; text-align:center; color:var(--slate); font-size:14px}
+.empty strong{color:var(--ink)}
+
+footer{margin:28px 0 48px; font-size:12.5px; color:var(--faint);
+  font-family:'Spline Sans Mono',monospace; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Vacancy monitor <span class="agencies">/ UNHCR · UNICEF · WFP</span></div>
+    <h1>Private sector partnerships &amp; resource mobilization</h1>
+    <div class="statusline">
+      <span class="dot" aria-hidden="true"></span>
+      <span id="status">Loading postings…</span>
+    </div>
+    <div class="banner" id="sampleBanner" hidden>
+      <strong>Sample data.</strong> Push this repo to GitHub and run the “Update vacancies” action to pull live postings.
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats" role="group" aria-label="Summary">
+    <div class="stat"><div class="label">Open roles</div><div class="value" id="stTotal">—</div></div>
+    <div class="stat"><div class="label">P4 level</div><div class="value" id="stP4">—</div></div>
+    <div class="stat ever"><div class="label">Evergreen</div><div class="value" id="stEver">—</div></div>
+    <div class="stat fresh"><div class="label">New this week</div><div class="value" id="stNew">—</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="q" placeholder="Search titles and summaries" aria-label="Search roles">
+    </div>
+    <select id="fAgency" aria-label="Filter by agency">
+      <option value="">All agencies</option>
+      <option>UNHCR</option><option>UNICEF</option><option>WFP</option>
+    </select>
+    <select id="fLevel" aria-label="Filter by level">
+      <option value="">All levels</option>
+      <option>P4</option><option>P3</option><option>P5</option>
+    </select>
+    <select id="fSort" aria-label="Sort">
+      <option value="newest">Newest first</option>
+      <option value="closing">Closing soon</option>
+      <option value="agency">By agency</option>
+    </select>
+    <button class="toggle" id="fEver" aria-pressed="false">Evergreen</button>
+    <button class="toggle saved" id="fSaved" aria-pressed="false">Saved ☆</button>
+  </div>
+
+  <div class="list" id="list" aria-live="polite"></div>
+
+  <footer>
+    <span id="genStamp"></span>
+    <span id="srcStamp"></span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const AGENCY_COLOR = {UNHCR:'var(--unhcr)', UNICEF:'var(--unicef)', WFP:'var(--wfp)'};
+  const $ = id => document.getElementById(id);
+  const store = {
+    get(){ try{ return JSON.parse(localStorage.getItem('vm_saved')||'[]'); }catch(e){ return []; } },
+    set(v){ try{ localStorage.setItem('vm_saved', JSON.stringify(v)); }catch(e){ /* sandboxed preview: saves last for this session only */ } }
+  };
+  const state = {
+    jobs: [], q:'', agency:'', level:'', sort:'newest', ever:false, savedOnly:false,
+    saved: new Set(store.get())
+  };
+
+  const days = d => Math.round((Date.now() - new Date(d).getTime())/86400000);
+  const rel = d => {
+    if(!d) return '';
+    const n = days(d);
+    if(n<=0) return 'today';
+    if(n===1) return '1 day ago';
+    if(n<=31) return n+' days ago';
+    return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  };
+  const isNew = d => d && days(d) <= 7;
+  const esc = s => (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  function persistSaved(){ store.set([...state.saved]); }
+
+  function render(){
+    let rows = state.jobs.filter(j=>{
+      if(state.agency && j.agency!==state.agency) return false;
+      if(state.level && j.level!==state.level) return false;
+      if(state.ever && !j.evergreen) return false;
+      if(state.savedOnly && !state.saved.has(j.id)) return false;
+      if(state.q){
+        const q = state.q.toLowerCase();
+        if(!(j.title+' '+(j.summary||'')).toLowerCase().includes(q)) return false;
+      }
+      return true;
+    });
+    rows.sort((a,b)=>{
+      if(state.sort==='newest') return new Date(b.posted_date||0) - new Date(a.posted_date||0);
+      if(state.sort==='closing') return new Date(a.closing_date||'2999-01-01') - new Date(b.closing_date||'2999-01-01');
+      if(state.sort==='agency') return a.agency.localeCompare(b.agency) || (new Date(b.posted_date||0)-new Date(a.posted_date||0));
+      return 0;
+    });
+
+    const list = $('list');
+    if(!rows.length){
+      list.innerHTML = '<div class="empty"><strong>No roles match these filters.</strong><br>Clear a filter or broaden the search to see more.</div>';
+      return;
+    }
+    list.innerHTML = rows.map(j=>`
+      <div class="row">
+        <div class="spine" style="background:${AGENCY_COLOR[j.agency]||'var(--line-strong)'}"></div>
+        <div class="main">
+          <div class="titleline">
+            <a href="${esc(j.url)}" target="_blank" rel="noopener">${esc(j.title)}</a>
+            ${j.evergreen ? '<span class="tag ever">Evergreen pool</span>' : ''}
+            ${!j.evergreen && isNew(j.posted_date) ? '<span class="tag new">New</span>' : ''}
+          </div>
+          ${j.summary ? `<div class="summary">${esc(j.summary)}</div>` : ''}
+          <div class="meta">
+            <span class="agency" style="color:${AGENCY_COLOR[j.agency]||'inherit'}">${esc(j.agency)}</span>
+            ${j.level ? `<span>${esc(j.level)}</span>` : ''}
+            ${j.location ? `<span>${esc(j.location)}</span>` : ''}
+            ${j.posted_date ? `<span>posted ${rel(j.posted_date)}</span>` : ''}
+            ${j.closing_date ? `<span>closes ${new Date(j.closing_date).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</span>` : ''}
+          </div>
+        </div>
+        <button class="savebtn" data-id="${esc(j.id)}" aria-pressed="${state.saved.has(j.id)}" aria-label="Save role" title="Save role">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="${state.saved.has(j.id)?'currentColor':'none'}" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </button>
+      </div>`).join('');
+
+    list.querySelectorAll('.savebtn').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const id = b.dataset.id;
+        state.saved.has(id) ? state.saved.delete(id) : state.saved.add(id);
+        persistSaved(); render();
+      });
+    });
+  }
+
+  function renderStats(){
+    $('stTotal').textContent = state.jobs.length;
+    $('stP4').textContent = state.jobs.filter(j=>j.level==='P4').length;
+    $('stEver').textContent = state.jobs.filter(j=>j.evergreen).length;
+    $('stNew').textContent = state.jobs.filter(j=>isNew(j.posted_date)).length;
+  }
+
+  async function load(){
+    try{
+      const res = await fetch('data/jobs.json?t='+Date.now());
+      if(!res.ok) throw new Error(res.status);
+      const data = await res.json();
+      state.jobs = data.jobs||[];
+      $('status').textContent = `Monitoring ${state.jobs.length} matched postings across three agencies`;
+      $('sampleBanner').hidden = !data.sample;
+      if(data.generated_at){
+        $('genStamp').textContent = 'data refreshed '+new Date(data.generated_at).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+      }
+      if(data.sources){
+        const bad = Object.entries(data.sources).filter(([,s])=>s.status!=='ok').map(([k])=>k);
+        $('srcStamp').textContent = bad.length ? 'source issues: '+bad.join(', ') : 'all sources ok';
+      }
+      renderStats(); render();
+    }catch(e){
+      // Offline / preview mode (Claude preview, file:// on disk): fall back to embedded sample data.
+      state.jobs = EMBEDDED_SAMPLE;
+      $('status').textContent = 'Preview mode — showing embedded sample data';
+      $('sampleBanner').hidden = false;
+      $('genStamp').textContent = 'live data loads once hosted on GitHub Pages';
+      renderStats(); render();
+    }
+  }
+
+  const EMBEDDED_SAMPLE = [
+    {id:'sample-unhcr-1', title:'Senior Private Sector Partnerships Officer (Evergreen talent pool)', agency:'UNHCR', level:'P4', location:'Copenhagen, Denmark', posted_date:'2026-07-01', closing_date:null, summary:'Rolling talent pool for senior PSP roles across income streams and markets.', evergreen:true, url:'https://unhcr.wd3.myworkdayjobs.com/en-US/External'},
+    {id:'sample-unhcr-2', title:'Private Sector Partnerships Officer (Strategic Planning)', agency:'UNHCR', level:'P3', location:'Geneva, Switzerland', posted_date:'2026-07-05', closing_date:'2026-07-20', summary:'Income planning, performance analysis and investment case development for PSP.', evergreen:false, url:'https://unhcr.wd3.myworkdayjobs.com/en-US/External'},
+    {id:'sample-unicef-1', title:'Partnerships Manager (Private Fundraising and Partnerships), P-4', agency:'UNICEF', level:'P4', location:'Geneva, Switzerland', posted_date:'2026-07-06', closing_date:'2026-07-24', summary:'Private Fundraising and Partnerships Division', evergreen:false, url:'https://jobs.smartrecruiters.com/UNICEF'},
+    {id:'sample-unicef-2', title:'Fundraising Investment Specialist (Revenue Planning), P-3', agency:'UNICEF', level:'P3', location:'Geneva, Switzerland', posted_date:'2026-06-28', closing_date:'2026-07-15', summary:'Private Fundraising and Partnerships Division', evergreen:false, url:'https://jobs.smartrecruiters.com/UNICEF'},
+    {id:'sample-wfp-1', title:'Partnerships Officer (Private Partnerships and Fundraising), P4', agency:'WFP', level:'P4', location:'Rome, Italy', posted_date:'2026-07-03', closing_date:'2026-07-17', summary:'Private Partnerships and Fundraising Division', evergreen:false, url:'https://www.wfp.org/careers/job-openings'},
+    {id:'sample-wfp-2', title:'Individual Giving & Income Analytics Officer, P3', agency:'WFP', level:'P3', location:'Rome, Italy', posted_date:'2026-06-25', closing_date:'2026-07-12', summary:'Private Partnerships and Fundraising Division', evergreen:false, url:'https://www.wfp.org/careers/job-openings'}
+  ];
+
+  $('q').addEventListener('input', e=>{state.q=e.target.value; render();});
+  $('fAgency').addEventListener('change', e=>{state.agency=e.target.value; render();});
+  $('fLevel').addEventListener('change', e=>{state.level=e.target.value; render();});
+  $('fSort').addEventListener('change', e=>{state.sort=e.target.value; render();});
+  $('fEver').addEventListener('click', e=>{state.ever=!state.ever; e.currentTarget.setAttribute('aria-pressed',state.ever); render();});
+  $('fSaved').addEventListener('click', e=>{state.savedOnly=!state.savedOnly; e.currentTarget.setAttribute('aria-pressed',state.savedOnly); render();});
+
+  load();
+})();
+</script>
+</body>
+</html>
