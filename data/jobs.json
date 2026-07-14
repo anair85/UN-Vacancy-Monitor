@@ -1,24 +1,48 @@
 {
-  "generated_at": "2026-07-13T09:19:28+00:00",
+  "generated_at": "2026-07-14T07:57:31+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-07-13T09:19:28+00:00"
+      "fetched_at": "2026-07-14T07:57:31+00:00"
     },
     "UNHCR": {
       "status": "ok",
-      "count": 1,
-      "fetched_at": "2026-07-13T09:19:28+00:00"
+      "count": 3,
+      "fetched_at": "2026-07-14T07:57:31+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-07-13T09:19:28+00:00"
+      "fetched_at": "2026-07-14T07:57:31+00:00"
     }
   },
   "jobs": [
+    {
+      "id": "unhcr-JR2667967",
+      "title": "Individual Giving Assistant",
+      "agency": "UNHCR",
+      "level": null,
+      "location": "Montreal, Canada",
+      "posted_date": "2026-07-13",
+      "closing_date": null,
+      "summary": null,
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Montreal-Canada/Individual-Giving-Assistant_JR2667967"
+    },
+    {
+      "id": "unhcr-JR2667840",
+      "title": "Private Partnerships & Philanthropy Intern",
+      "agency": "UNHCR",
+      "level": null,
+      "location": "Copenhagen (HQ), Denmark",
+      "posted_date": "2026-07-13",
+      "closing_date": null,
+      "summary": null,
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Copenhagen-HQ-Denmark/Private-Partnerships---Philanthropy-Intern_JR2667840"
+    },
     {
       "id": "unhcr-JR2667639",
       "title": "Associate Donor Relations Officer",
