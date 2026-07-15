@@ -1,24 +1,36 @@
 {
-  "generated_at": "2026-07-14T07:57:31+00:00",
+  "generated_at": "2026-07-15T08:02:40+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-07-14T07:57:31+00:00"
+      "fetched_at": "2026-07-15T08:02:40+00:00"
     },
     "UNHCR": {
       "status": "ok",
-      "count": 3,
-      "fetched_at": "2026-07-14T07:57:31+00:00"
+      "count": 4,
+      "fetched_at": "2026-07-15T08:02:40+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-07-14T07:57:31+00:00"
+      "fetched_at": "2026-07-15T08:02:40+00:00"
     }
   },
   "jobs": [
+    {
+      "id": "unhcr-JR2667957",
+      "title": "Individual Giving Associate",
+      "agency": "UNHCR",
+      "level": null,
+      "location": "Toronto, Canada",
+      "posted_date": "2026-07-14",
+      "closing_date": null,
+      "summary": null,
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Toronto-Canada/Individual-Giving-Associate_JR2667957"
+    },
     {
       "id": "unhcr-JR2667967",
       "title": "Individual Giving Assistant",
