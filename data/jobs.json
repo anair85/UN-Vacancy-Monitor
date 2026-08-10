@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-09T06:50:29+00:00",
+  "generated_at": "2026-08-10T07:24:51+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-08-09T06:50:29+00:00"
+      "fetched_at": "2026-08-10T07:24:51+00:00"
     },
     "UNHCR": {
       "status": "ok",
       "count": 2,
-      "fetched_at": "2026-08-09T06:50:29+00:00"
+      "fetched_at": "2026-08-10T07:24:51+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-08-09T06:50:29+00:00"
+      "fetched_at": "2026-08-10T07:24:51+00:00"
     }
   },
   "jobs": [
@@ -25,7 +25,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Paris, France",
-      "posted_date": "2026-08-05",
+      "posted_date": "2026-08-04",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
@@ -37,7 +37,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Brussels, Belgium",
-      "posted_date": "2026-08-05",
+      "posted_date": "2026-08-04",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
