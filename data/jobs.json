@@ -1,24 +1,36 @@
 {
-  "generated_at": "2026-08-16T06:33:09+00:00",
+  "generated_at": "2026-08-17T06:46:13+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-08-16T06:33:09+00:00"
+      "fetched_at": "2026-08-17T06:46:13+00:00"
     },
     "UNHCR": {
       "status": "ok",
-      "count": 6,
-      "fetched_at": "2026-08-16T06:33:09+00:00"
+      "count": 7,
+      "fetched_at": "2026-08-17T06:46:13+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-08-16T06:33:09+00:00"
+      "fetched_at": "2026-08-17T06:46:13+00:00"
     }
   },
   "jobs": [
+    {
+      "id": "unhcr-JR2668402",
+      "title": "PSP Fundraising Intern (Donor Care & Development)",
+      "agency": "UNHCR",
+      "level": null,
+      "location": "Kuala Lumpur, Malaysia",
+      "posted_date": "2026-08-17",
+      "closing_date": null,
+      "summary": null,
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Kuala-Lumpur-Malaysia/PSP-Fundraising-Intern--Donor-Care---Development-_JR2668402-1"
+    },
     {
       "id": "unhcr-JR2667347",
       "title": "Snr PSP Individual Giving Assc",
