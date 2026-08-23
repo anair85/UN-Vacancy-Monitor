@@ -1,24 +1,36 @@
 {
-  "generated_at": "2026-08-22T06:33:04+00:00",
+  "generated_at": "2026-08-23T06:34:43+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-08-22T06:33:04+00:00"
+      "fetched_at": "2026-08-23T06:34:43+00:00"
     },
     "UNHCR": {
-      "status": "error: Expecting value: line 1 column 1 (char 0)",
-      "count": 6,
-      "fetched_at": "2026-08-22T06:33:04+00:00"
+      "status": "ok",
+      "count": 7,
+      "fetched_at": "2026-08-23T06:34:43+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-08-22T06:33:04+00:00"
+      "fetched_at": "2026-08-23T06:34:43+00:00"
     }
   },
   "jobs": [
+    {
+      "id": "unhcr-JR2666036",
+      "title": "Snr PSP Individual Giving Assc",
+      "agency": "UNHCR",
+      "level": null,
+      "location": "Mexico City, Mexico",
+      "posted_date": "2026-08-23",
+      "closing_date": null,
+      "summary": null,
+      "evergreen": false,
+      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Mexico-City-Mexico/Snr-PSP-Individual-Giving-Assc_JR2666036-2"
+    },
     {
       "id": "unhcr-JR2668477",
       "title": "Senior PSP Assistant (Middle Donor)",
