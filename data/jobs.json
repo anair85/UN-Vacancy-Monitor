@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-26T06:41:00+00:00",
+  "generated_at": "2026-08-27T17:16:49+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-08-26T06:41:00+00:00"
+      "fetched_at": "2026-08-27T17:16:49+00:00"
     },
     "UNHCR": {
       "status": "ok",
       "count": 6,
-      "fetched_at": "2026-08-26T06:41:00+00:00"
+      "fetched_at": "2026-08-27T17:16:49+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-08-26T06:41:00+00:00"
+      "fetched_at": "2026-08-27T17:16:49+00:00"
     }
   },
   "jobs": [
@@ -37,7 +37,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Bangkok (Glob.Prog.), Thailand",
-      "posted_date": "2026-08-25",
+      "posted_date": "2026-08-24",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
@@ -49,7 +49,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Bangkok (MCO), Thailand",
-      "posted_date": "2026-08-21",
+      "posted_date": "2026-08-20",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
@@ -61,7 +61,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Kuala Lumpur, Malaysia",
-      "posted_date": "2026-08-18",
+      "posted_date": "2026-08-17",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
@@ -73,7 +73,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Mexico City, Mexico",
-      "posted_date": "2026-08-15",
+      "posted_date": "2026-08-14",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
@@ -85,7 +85,7 @@
       "agency": "UNHCR",
       "level": null,
       "location": "Copenhagen (HQ), Denmark",
-      "posted_date": "2026-08-11",
+      "posted_date": "2026-08-10",
       "closing_date": null,
       "summary": null,
       "evergreen": false,
