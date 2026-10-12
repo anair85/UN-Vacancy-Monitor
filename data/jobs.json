@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-11T12:02:33+00:00",
+  "generated_at": "2026-10-12T14:19:47+00:00",
   "sample": false,
   "sources": {
     "UNICEF": {
       "status": "ok",
       "count": 0,
-      "fetched_at": "2026-10-11T12:02:33+00:00"
+      "fetched_at": "2026-10-12T14:19:47+00:00"
     },
     "UNHCR": {
       "status": "ok",
-      "count": 4,
-      "fetched_at": "2026-10-11T12:02:33+00:00"
+      "count": 3,
+      "fetched_at": "2026-10-12T14:19:47+00:00"
     },
     "WFP": {
       "status": "error: WFP parse produced 0 jobs — site structure may have changed",
       "count": 2,
-      "fetched_at": "2026-10-11T12:02:33+00:00"
+      "fetched_at": "2026-10-12T14:19:47+00:00"
     }
   },
   "jobs": [
@@ -42,18 +42,6 @@
       "summary": null,
       "evergreen": false,
       "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Kuala-Lumpur-Malaysia/PSP-Fundraising-Intern--Donor-Care---Development-_JR2668840"
-    },
-    {
-      "id": "unhcr-JR2666099",
-      "title": "Snr PSP Individual Giving Assc",
-      "agency": "UNHCR",
-      "level": null,
-      "location": "Mexico City, Mexico",
-      "posted_date": "2026-09-28",
-      "closing_date": null,
-      "summary": null,
-      "evergreen": false,
-      "url": "https://unhcr.wd3.myworkdayjobs.com/en-US/External/job/Mexico-City-Mexico/Snr-PSP-Individual-Giving-Assc_JR2666099-2"
     },
     {
       "id": "unhcr-JR2668824",
